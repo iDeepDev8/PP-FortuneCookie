@@ -2,11 +2,9 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 
 import Nav from './Nav'
-import Home from './Home'
+import Form from './Form'
 import List from './List'
 import Rank from './Rank'
-import Species from './Species'
-import Organism from './Organism'
 
 const App = () => {
   return (

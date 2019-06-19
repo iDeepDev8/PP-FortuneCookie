@@ -106,29 +106,21 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
-var _Nav = __webpack_require__(/*! ./Nav */ "./client/components/Nav.jsx");
+var _Nav = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './Nav'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 var _Nav2 = _interopRequireDefault(_Nav);
 
-var _Home = __webpack_require__(/*! ./Home */ "./client/components/Home.jsx");
+var _Form = __webpack_require__(/*! ./Form */ "./client/components/Form.jsx");
 
-var _Home2 = _interopRequireDefault(_Home);
+var _Form2 = _interopRequireDefault(_Form);
 
 var _List = __webpack_require__(/*! ./List */ "./client/components/List.jsx");
 
 var _List2 = _interopRequireDefault(_List);
 
-var _Rank = __webpack_require__(/*! ./Rank */ "./client/components/Rank.jsx");
+var _Rank = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './Rank'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 var _Rank2 = _interopRequireDefault(_Rank);
-
-var _Species = __webpack_require__(/*! ./Species */ "./client/components/Species.jsx");
-
-var _Species2 = _interopRequireDefault(_Species);
-
-var _Organism = __webpack_require__(/*! ./Organism */ "./client/components/Organism.jsx");
-
-var _Organism2 = _interopRequireDefault(_Organism);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -142,11 +134,11 @@ var App = function App() {
       'Navigating the taxonomic ranks'
     ),
     _react2.default.createElement(_Nav2.default, null),
-    _react2.default.createElement(_reactRouterDom.Route, { path: '/', exact: true, component: _Home2.default }),
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/', exact: true, component: Home }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/list/:rank', component: _List2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/rank/:rank/:name', component: _Rank2.default }),
-    _react2.default.createElement(_reactRouterDom.Route, { path: '/rank/:rank/:name/species', component: _Species2.default }),
-    _react2.default.createElement(_reactRouterDom.Route, { path: '/species/:id', component: _Organism2.default })
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/rank/:rank/:name/species', component: Species }),
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/species/:id', component: Organism })
   );
 };
 
@@ -154,9 +146,9 @@ exports.default = App;
 
 /***/ }),
 
-/***/ "./client/components/Home.jsx":
+/***/ "./client/components/Form.jsx":
 /*!************************************!*\
-  !*** ./client/components/Home.jsx ***!
+  !*** ./client/components/Form.jsx ***!
   \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -182,16 +174,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Home = function (_React$Component) {
-  _inherits(Home, _React$Component);
+var Form = function (_React$Component) {
+  _inherits(Form, _React$Component);
 
-  function Home() {
-    _classCallCheck(this, Home);
+  function Form() {
+    _classCallCheck(this, Form);
 
-    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
   }
 
-  _createClass(Home, [{
+  _createClass(Form, [{
     key: "render",
     value: function render() {
       return _react2.default.createElement(
@@ -199,26 +191,27 @@ var Home = function (_React$Component) {
         null,
         _react2.default.createElement(
           "div",
-          { className: "Rank" },
+          { className: "Form" },
           _react2.default.createElement(
             "h2",
             null,
-            "Home"
+            "Tell us who you are"
           ),
+          _react2.default.createElement("form", { action: "input" }),
           _react2.default.createElement(
             "p",
             null,
-            "Please Click on a link please"
+            "Fill in your details and submit"
           )
         )
       );
     }
   }]);
 
-  return Home;
+  return Form;
 }(_react2.default.Component);
 
-exports.default = Home;
+exports.default = Form;
 
 /***/ }),
 
@@ -244,7 +237,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
-var _ranks = __webpack_require__(/*! ../../data/ranks */ "./data/ranks.js");
+var _ranks = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../data/ranks'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 var _ranks2 = _interopRequireDefault(_ranks);
 
@@ -314,411 +307,6 @@ exports.default = Rank;
 
 /***/ }),
 
-/***/ "./client/components/Nav.jsx":
-/*!***********************************!*\
-  !*** ./client/components/Nav.jsx ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
-var _ranks = __webpack_require__(/*! ../../data/ranks */ "./data/ranks.js");
-
-var _ranks2 = _interopRequireDefault(_ranks);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var keys = Object.keys(_ranks2.default);
-
-var Nav = function Nav() {
-  return _react2.default.createElement(
-    'div',
-    { className: 'nav' },
-    _react2.default.createElement(
-      'h2',
-      null,
-      'Nav'
-    ),
-    _react2.default.createElement(
-      'ul',
-      null,
-      keys.map(function (key) {
-        return _react2.default.createElement(
-          'li',
-          { key: key },
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/list/' + key },
-            key
-          )
-        );
-      })
-    )
-  );
-};
-
-exports.default = Nav;
-
-/***/ }),
-
-/***/ "./client/components/Organism.jsx":
-/*!****************************************!*\
-  !*** ./client/components/Organism.jsx ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
-var _species = __webpack_require__(/*! ../../data/species */ "./data/species.js");
-
-var _species2 = _interopRequireDefault(_species);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Organism = function (_React$Component) {
-  _inherits(Organism, _React$Component);
-
-  function Organism() {
-    _classCallCheck(this, Organism);
-
-    return _possibleConstructorReturn(this, (Organism.__proto__ || Object.getPrototypeOf(Organism)).apply(this, arguments));
-  }
-
-  _createClass(Organism, [{
-    key: 'render',
-    value: function render() {
-      var id = Number(this.props.match.params.id);
-      var singleSpecie = _species2.default.find(function (sSpecie) {
-        return sSpecie.id === id;
-      });
-      var name = singleSpecie.name,
-          description = singleSpecie.description,
-          photo = singleSpecie.photo,
-          kingdom = singleSpecie.kingdom,
-          phylum = singleSpecie.phylum,
-          order = singleSpecie.order,
-          family = singleSpecie.family,
-          genus = singleSpecie.genus;
-
-      return _react2.default.createElement(
-        _react2.default.Fragment,
-        null,
-        _react2.default.createElement(
-          'h1',
-          null,
-          name
-        ),
-        _react2.default.createElement(
-          'p',
-          null,
-          description
-        ),
-        _react2.default.createElement('img', { src: photo, alt: 'Organism image' }),
-        _react2.default.createElement(
-          'ul',
-          null,
-          _react2.default.createElement(
-            'li',
-            null,
-            'Kingdom: ',
-            _react2.default.createElement(
-              _reactRouterDom.Link,
-              { to: '/rank/kingdoms/' + kingdom },
-              kingdom
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            'Phylum: ',
-            _react2.default.createElement(
-              _reactRouterDom.Link,
-              { to: '/rank/phyla/' + phylum },
-              phylum
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            'Class: ',
-            _react2.default.createElement(
-              _reactRouterDom.Link,
-              { to: '/rank/classes/' + singleSpecie.class },
-              singleSpecie.class
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            'Order: ',
-            _react2.default.createElement(
-              _reactRouterDom.Link,
-              { to: '/rank/orders/' + order },
-              order
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            'Family: ',
-            _react2.default.createElement(
-              _reactRouterDom.Link,
-              { to: '/rank/families/' + family },
-              family
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            'Genus: ',
-            _react2.default.createElement(
-              _reactRouterDom.Link,
-              { to: '/rank/genera/' + genus },
-              genus
-            )
-          )
-        ),
-        _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/' },
-          'Home'
-        )
-      );
-    }
-  }]);
-
-  return Organism;
-}(_react2.default.Component);
-
-exports.default = Organism;
-
-/***/ }),
-
-/***/ "./client/components/Rank.jsx":
-/*!************************************!*\
-  !*** ./client/components/Rank.jsx ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
-var _ranks = __webpack_require__(/*! ../../data/ranks */ "./data/ranks.js");
-
-var _ranks2 = _interopRequireDefault(_ranks);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Rank = function (_React$Component) {
-  _inherits(Rank, _React$Component);
-
-  function Rank() {
-    _classCallCheck(this, Rank);
-
-    return _possibleConstructorReturn(this, (Rank.__proto__ || Object.getPrototypeOf(Rank)).apply(this, arguments));
-  }
-
-  _createClass(Rank, [{
-    key: 'capitalize',
-    value: function capitalize(text) {
-      return text[0].toUpperCase() + text.slice(1);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var rank = this.props.match.params.rank;
-      var name = this.props.match.params.name;
-      var taxonomy = _ranks2.default[rank].find(function (rank) {
-        return rank.name === name;
-      });
-      return _react2.default.createElement(
-        _react2.default.Fragment,
-        null,
-        _react2.default.createElement(
-          'div',
-          { className: 'Rank' },
-          _react2.default.createElement(
-            'h2',
-            null,
-            name
-          ),
-          _react2.default.createElement(
-            'p',
-            null,
-            taxonomy.description
-          )
-        ),
-        _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/rank/' + rank + '/' + name + '/species' },
-          'Show Species'
-        )
-      );
-    }
-  }]);
-
-  return Rank;
-}(_react2.default.Component);
-
-exports.default = Rank;
-
-/***/ }),
-
-/***/ "./client/components/Species.jsx":
-/*!***************************************!*\
-  !*** ./client/components/Species.jsx ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _species = __webpack_require__(/*! ../../data/species */ "./data/species.js");
-
-var _species2 = _interopRequireDefault(_species);
-
-var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Species = function (_React$Component) {
-  _inherits(Species, _React$Component);
-
-  function Species() {
-    _classCallCheck(this, Species);
-
-    return _possibleConstructorReturn(this, (Species.__proto__ || Object.getPrototypeOf(Species)).apply(this, arguments));
-  }
-
-  _createClass(Species, [{
-    key: 'singularize',
-    value: function singularize(name) {
-      switch (name.toLowerCase()) {
-        case 'phyla':
-          return 'phylum';
-        case 'kingdoms':
-          return 'kingdom';
-        case 'classes':
-          return 'class';
-        case 'orders':
-          return 'order';
-        case 'families':
-          return 'family';
-        case 'genera':
-          return 'genus';
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var singlularRank = this.singularize(this.props.match.params.rank);
-      var name = this.props.match.params.name;
-      var filteredSpecies = _species2.default.filter(function (taxi) {
-        return taxi[singlularRank] === name;
-      });
-
-      return _react2.default.createElement(
-        _react2.default.Fragment,
-        null,
-        _react2.default.createElement(
-          'h2',
-          null,
-          'Species'
-        ),
-        _react2.default.createElement(
-          'ul',
-          null,
-          filteredSpecies.map(function (filteredS) {
-            return _react2.default.createElement(
-              'li',
-              { key: filteredS.name },
-              _react2.default.createElement(
-                _reactRouterDom.Link,
-                { to: '/species/' + filteredS.id },
-                filteredS.name
-              )
-            );
-          })
-        )
-      );
-    }
-  }]);
-
-  return Species;
-}(_react2.default.Component);
-
-exports.default = Species;
-
-/***/ }),
-
 /***/ "./client/index.js":
 /*!*************************!*\
   !*** ./client/index.js ***!
@@ -752,222 +340,6 @@ document.addEventListener('DOMContentLoaded', function () {
     _react2.default.createElement(_App2.default, null)
   ), document.getElementById('app'));
 });
-
-/***/ }),
-
-/***/ "./data/ranks.js":
-/*!***********************!*\
-  !*** ./data/ranks.js ***!
-  \***********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var ranks = {
-  kingdoms: [{
-    id: 1,
-    name: 'Animalia',
-    description: 'The animal kingdom emerged as a clade within Apoikozoa as the sister group to the choanoflagellates. Animals are motile, meaning they can move spontaneously and independently at some point in their lives. Their body plan eventually becomes fixed as they develop, although some undergo a process of metamorphosis later in their lives. All animals are heterotrophs: they must ingest other organisms or their products for sustenance.'
-  }, {
-    id: 2,
-    name: 'Plantae',
-    description: 'Plants are mainly multicellular, predominantly photosynthetic eukaryotes of the kingdom Plantae. The term is today generally limited to the green plants, which form an unranked clade Viridiplantae (Latin for "green plants"). This includes the flowering plants, conifers and other gymnosperms, ferns, clubmosses, hornworts, liverworts, mosses and the green algae, and excludes the red and brown algae. Historically, plants formed one of two kingdoms covering all living things that were not animals, and both algae and fungi were treated as plants; however all current definitions of "plant" exclude the fungi and some algae, as well as the prokaryotes (the archaea and bacteria).'
-  }, {
-    id: 3,
-    name: 'Fungi',
-    description: 'A fungus is any member of the group of eukaryotic organisms that includes microorganisms such as yeasts and molds, as well as the more familiar mushrooms. These organisms are classified as a kingdom, Fungi, which is separate from the other eukaryotic life kingdoms of plants and animals. A characteristic that places fungi in a different kingdom from plants, bacteria, and some protists is chitin in their cell walls. Similar to animals, fungi are heterotrophs; they acquire their food by absorbing dissolved molecules, typically by secreting digestive enzymes into their environment. Fungi do not photosynthesise. Growth is their means of mobility, except for spores (a few of which are flagellated), which may travel through the air or water. Fungi are the principal decomposers in ecological systems.'
-  }, {
-    id: 4,
-    name: 'Eubacteria',
-    description: "Bacteria (common noun bacteria, singular bacterium) constitute a large domain of prokaryotic microorganisms. Typically a few micrometres in length, bacteria have a number of shapes, ranging from spheres to rods and spirals. Bacteria were among the first life forms to appear on Earth, and are present in most of its habitats. Bacteria inhabit soil, water, acidic hot springs, radioactive waste, and the deep portions of Earth's crust. Bacteria also live in symbiotic and parasitic relationships with plants and animals. Most bacteria have not been characterised, and only about half of the bacterial phyla have species that can be grown in the laboratory. The study of bacteria is known as bacteriology, a branch of microbiology."
-  }],
-  phyla: [{
-    id: 5,
-    name: 'Arthropoda',
-    description: 'An arthropod is an invertebrate animal having an exoskeleton (external skeleton), a segmented body, and jointed appendages (paired appendages). Arthropods form the phylum Arthropoda, which includes insects, arachnids, myriapods, and crustaceans. Arthropods are characterized by their jointed limbs and cuticle made of chitin, often mineralised with calcium carbonate. The arthropod body plan consists of segments, each with a pair of appendages. The rigid cuticle inhibits growth, so arthropods replace it periodically by moulting. Their versatility has enabled them to become the most species-rich members of all ecological guilds in most environments. They have over a million described species, making up more than 80% of all described living animal species, some of which, unlike most animals, are very successful in dry environments.'
-  }, {
-    id: 6,
-    name: 'Chordata',
-    description: 'A chordate is an animal belonging to the phylum Chordata; they possess a notochord, a hollow dorsal nerve cord, pharyngeal slits, an endostyle, and a post-anal tail, for at least some period of their life cycle. Chordates are deuterostomes, as during the embryo development stage the anus forms before the mouth. They are also bilaterally symmetric coelomates. In the case of vertebrate chordates, the notochord is usually replaced by a vertebral column during development, and they may have body plans organized via segmentation.'
-  }, {
-    id: 7,
-    name: 'Tracheophyta',
-    description: 'Vascular plants (from Latin vasculum: duct), also known as tracheophytes (from the equivalent Greek term trachea) and also higher plants, form a large group of plants (c. 308,312 accepted known species) that are defined as those land plants that have lignified tissues (the xylem) for conducting water and minerals throughout the plant. They also have a specialized non-lignified tissue (the phloem) to conduct products of photosynthesis. Vascular plants include the clubmosses, horsetails, ferns, gymnosperms (including conifers) and angiosperms (flowering plants). Scientific names for the group include Tracheophyta and Tracheobionta.'
-  }, {
-    id: 8,
-    name: 'Basidiomycota',
-    description: 'Basidiomycota is one of two large divisions that, together with the Ascomycota, constitute the subkingdom Dikarya (often referred to as the "higher fungi") within the kingdom Fungi. More specifically the Basidiomycota include these groups: mushrooms, puffballs, stinkhorns, bracket fungi, other polypores, jelly fungi, boletes, chanterelles, earth stars, smuts, bunts, rusts, mirror yeasts, and the human pathogenic yeast Cryptococcus. Basidiomycota are filamentous fungi composed of hyphae (except for basidiomycota-yeast; refer yeast for more information) and reproduce sexually via the formation of specialized club-shaped end cells called basidia that normally bear external meiospores (usually four).'
-  }, {
-    id: 9,
-    name: 'Proteobacteria',
-    description: 'The "Proteobacteria" are a major phylum of Gram-negative bacteria. The name of the phylum has never been validly published as no type genus has been proposed, thus it must be styled in quotation marks as the name has no standing in nomenclature. They include a wide variety of pathogens, such as Escherichia, Salmonella, Vibrio, Helicobacter, Yersinia, and many other notable genera. Others are free-living (nonparasitic), and include many of the bacteria responsible for nitrogen fixation. Carl Woese established this grouping in 1987, calling it informally the "purple bacteria and their relatives". Because of the great diversity of forms found in this group, the "Proteobacteria" are named after Proteus, a Greek god of the sea capable of assuming many different shapes and is not named after the genus Proteus.'
-  }],
-  classes: [{
-    id: 10,
-    name: 'Insecta',
-    description: 'Insects are a class (Insecta) of hexapod invertebrates within the arthropod phylum that have a chitinous exoskeleton, a three-part body (head, thorax and abdomen), three pairs of jointed legs, compound eyes and one pair of antennae. They are the most diverse group of animals on the planet, including more than a million described species and representing more than half of all known living organisms. The number of extant species is estimated at between six and ten million, and potentially represent over 90% of the differing animal life forms on Earth. Insects may be found in nearly all environments, although only a small number of species reside in the oceans, a habitat dominated by another arthropod group, crustaceans.'
-  }, {
-    id: 11,
-    name: 'Mammalia',
-    description: 'Mammals are any vertebrates within the class Mammalia, a clade of endothermic amniotes distinguished from reptiles (including birds) by the possession of a neocortex (a region of the brain), hair, three middle ear bones and mammary glands. Females of all mammal species nurse their young with milk, secreted from the mammary glands. Mammals include the biggest animals on the planet, the great whales. The basic body type is a terrestrial quadruped, but some mammals are adapted for life at sea, in the air, in trees, underground or on two legs.'
-  }, {
-    id: 12,
-    name: 'Magnoliopsida',
-    description: 'Magnoliopsida is a valid botanical name for a class of flowering plants. By definition the class will include the family Magnoliaceae, but its circumscription can otherwise vary, being more inclusive or less inclusive depending upon the classification system being discussed.'
-  }, {
-    id: 13,
-    name: 'Agaricomycetes',
-    description: 'The Agaricomycetes are a class of fungi in the division Basidiomycota. The taxon is roughly identical to that defined for the Homobasidiomycetes (alternatively called holobasidiomycetes) by Hibbett & Thorn, with the inclusion of Auriculariales and Sebacinales. It includes not only mushroom-forming fungi, but also most species placed in the deprecated taxa Gasteromycetes and Homobasidiomycetes. Within the subdivision Agaricomycotina, which already excludes the smut and rust fungi, the Agaricomycetes can be further defined by the exclusion of the classes Tremellomycetes and Dacrymycetes, which are generally considered to be jelly fungi. However, a few former "jelly fungi", such as Auricularia, are classified in the Agaricomycetes. According to a 2008 estimate, Agaricomycetes include 17 orders, 100 families, 1147 genera, and about 21000 species. Modern molecular phylogenetic analyses have been since used to help define several new orders in the Agaricomycetes: Amylocorticiales, Jaapiales, Stereopsidales, and Lepidostromatales.'
-  }, {
-    id: 14,
-    name: 'Gammaproteobacteria',
-    description: 'Gammaproteobacteria are a class of several medically, ecologically, and scientifically important groups of bacteria. An exceeding number of important pathogens belong to this class. Like all Proteobacteria, the Gammaproteobacteria are Gram-negative. The Gammaproteobacteria comprise several medically and scientifically important groups of bacteria, such as the Enterobacteriaceae, Vibrionaceae, and Pseudomonadaceae. A number of important pathogens belong to this class, e.g. Salmonella spp. (enteritis and typhoid fever), Yersinia pestis (plague), Vibrio cholerae (cholera), Pseudomonas aeruginosa (lung infections in hospitalized or cystic fibrosis patients), and Escherichia coli (food poisoning).'
-  }],
-  orders: [{
-    id: 15,
-    name: 'Diptera',
-    description: 'True flies are insects of the order Diptera, the name being derived from the Greek di = two, and ptera = wings. Insects of this order use only a single pair of wings to fly, the hindwings being reduced to club-like balancing organs known as halteres. Diptera is a large order containing an estimated 1,000,000 species including horse-flies, crane flies, hoverflies and others, although only about 125,000 species have been described.'
-  }, {
-    id: 16,
-    name: 'Primates',
-    description: 'A primate is a mammal of the order Primates (Latin: "prime, first rank"). In taxonomy, primates include two distinct lineages, strepsirrhines and haplorhines. Primates arose from ancestors that lived in the trees of tropical forests; many primate characteristics represent adaptations to life in this challenging three-dimensional environment. Most primate species remain at least partly arboreal.'
-  }, {
-    id: 17,
-    name: 'Fabales',
-    description: 'The Fabales are an order of flowering plants included in the rosid group of the eudicots in the Angiosperm Phylogeny Group II classification system. In the APG II circumscription, this order includes the families Fabaceae or legumes (including the subfamilies Caesalpinioideae, Mimosoideae, and Faboideae), Quillajaceae, Polygalaceae or milkworts (including the families Diclidantheraceae, Moutabeaceae, and Xanthophyllaceae), and Surianaceae. Under the Cronquist system and some other plant classification systems, the order Fabales contains only the family Fabaceae. In the classification system of Dahlgren the Fabales were in the superorder Fabiflorae (also called Fabanae) with three familiese corresponding to the subfamilies of Fabaceae in APG II. The other families treated in the Fabales by the APG II classification were placed in separate orders by Cronquist, the Polygalaceae within its own order, the Polygalales, and the Quillajaceae and Surianaceae within the Rosales.'
-  }, {
-    id: 18,
-    name: 'Agaricales',
-    description: 'The fungal order Agaricales, also known as gilled mushrooms (for their distinctive gills) or euagarics, contains some of the most familiar types of mushrooms. The order has 33 extant families, 413 genera, and over 13000 described species, along with five extinct genera known only from the fossil record. They range from the ubiquitous common mushroom to the deadly destroying angel and the hallucinogenic fly agaric to the bioluminescent jack-o-lantern mushroom.'
-  }, {
-    id: 19,
-    name: 'Enterobacteriales',
-    description: 'The Enterobacteriales are an order of gram-negative bacteria that includes only one family which is the Enterobacteriaceae.'
-  }],
-  families: [{
-    id: 20,
-    name: 'Drosophilidae',
-    description: 'The Drosophilidae are a diverse, cosmopolitan family of flies, which includes fruit flies. Another unrelated family of flies, Tephritidae, also includes species known as "fruit flies". The best known species of the Drosophilidae is Drosophila melanogaster, within the genus Drosophila, and this species is used extensively for studies concerning genetics, development, physiology, ecology and behaviour. This fruit fly is mostly composed of post-mitotic cells, has a very short lifespan, and shows gradual aging. As in other species, temperature influences the life history of the animal. Several genes have been identified that can be manipulated to extend the lifespan of these insects.'
-  }, {
-    id: 21,
-    name: 'Hominidae',
-    description: 'The Hominidae, whose members are known as great apes or hominids, are a taxonomic family of primates that includes seven extant species in four genera: Pongo, the Bornean and Sumatran orangutan; Gorilla, the eastern and western gorilla; Pan, the common chimpanzee and the bonobo; and Homo, the human (and though not extant, the near-human ancestors and relatives (e.g., the Neanderthal)).'
-  }, {
-    id: 22,
-    name: 'Fabaceae',
-    description: 'The Fabaceae, Leguminosae or Papilionaceae, commonly known as the legume, pea, or bean family, are a large and economically important family of flowering plants. It includes trees, shrubs, and perennial or annual herbaceous plants, which are easily recognized by their fruit (legume) and their compound, stipulated leaves. Many legumes have characteristics of flowers and fruits.The family is widely distributed, and is the third-largest land plant family in terms of number of species, behind only the Orchidaceae and Asteraceae, with about 751 genera and some 19,000 known species. The five largest of the genera are Astragalus (over 3,000 species), Acacia (over 1000 species), Indigofera (around 700 species), Crotalaria (around 700 species) and Mimosa (around 500 species), which constitute about a quarter of all legume species. The ca. 19,000 known legume species amount to about 7% of flowering plant species. Fabaceae is the most common family found in tropical rainforests and in dry forests in the Americas and Africa.'
-  }, {
-    id: 23,
-    name: 'Amanitaceae',
-    description: 'The Amanitaceae is a family of mushroom-forming fungi. The family, also commonly called the amanita family, is in order Agaricales, the gilled mushrooms. The family consists primarily of the large genus Amanita, but also includes the smaller genera Amarrendia, Catatrama, Limacella, Saproamanita and Torrendia. Both Amarrendia and Torrendia and considered to be synonymous with Amanita but appear quite different because they are secotioid. The species are usually found in woodlands. The most characteristic emerge from an egg-like structure formed by the universal veil.'
-  }, {
-    id: 24,
-    name: 'Enterobacteriaceae',
-    description: 'The Enterobacteriaceae are a large family of Gram-negative bacteria that includes, along with many harmless symbionts, many of the more familiar pathogens, such as Salmonella, Escherichia coli, Yersinia pestis, Klebsiella, and Shigella. Other disease-causing bacteria in this family include Proteus, Enterobacter, Serratia, and Citrobacter. This family is the only representative in the order Enterobacteriales of the class Gammaproteobacteria in the phylum Proteobacteria. Phylogenetically, in the Enterobacteriales, several peptidoglycan-less insect endosymbionts form a sister clade to the Enterobacteriaceae, but as they are not validly described, this group is not officially a taxon; examples of these species are Sodalis, Buchnera, Wigglesworthia, Baumannia cicadellinicola, and Blochmannia, but not former Rickettsias. Members of the Enterobacteriaceae can be trivially referred to as enterobacteria or "enteric bacteria", as several members live in the intestines of animals. In fact, the etymology of the family is enterobacterium with the suffix to designate a family (aceae)—not after the genus Enterobacter (which would be "Enterobacteraceae")—and the type genus is Escherichia.'
-  }],
-  genera: [{
-    id: 25,
-    name: 'Drosophila',
-    description: 'Drosophila is a genus of flies, belonging to the family Drosophilidae, whose members are often called "fruit flies" or (less frequently) pomace flies, vinegar flies, or wine flies, a reference to the characteristic of many species to linger around overripe or rotting fruit. They should not be confused with the Tephritidae, a related family, which are also called fruit flies (sometimes referred to as "true fruit flies"); tephritids feed primarily on unripe or ripe fruit, with many species being regarded as destructive agricultural pests, especially the Mediterranean fruit fly.'
-  }, {
-    id: 26,
-    name: 'Homo',
-    description: 'Homo is the genus that comprises the species Homo sapiens, which includes modern humans, as well as several extinct species classified as ancestral to or closely related to modern humans, most notably Homo erectus. The genus is between 2 and 3 million years old, taken to emerge with the appearance of Homo habilis and possibly that of Homo gautengensis. Homo is derived from the genus Australopithecus, which itself had previously split from the lineage of Pan, the chimpanzees. Taxonomically, Homo is the only genus assigned to the subtribe Hominina which, with the subtribes Australopithecina and Panina, comprise the tribe Hominini (see evolutionary tree below). All species of the genus Homo plus those species of the australopithecines that arose after the split from Pan are called hominins.'
-  }, {
-    id: 27,
-    name: 'Pisum',
-    description: 'Pisum is a genus of the family Fabaceae, native to southwest Asia and northeast Africa. Pisum sativum (the field or garden pea), is a major human food crop. Pisum species are used as food plants by the larvae of some Lepidoptera species including Bucculatrix pyrivorella, cabbage moth, common swift, ghost moth, Hypercompe indecisa, the nutmeg, setaceous Hebrew character and turnip moth. The Pisum sativum flower has 5 sepals (fused), 5 petals, 10 stamens (9 fused in a staminal tube and 1 stamen is free) and 1 subsessil carpel.'
-  }, {
-    id: 28,
-    name: 'Amanita',
-    description: 'The genus Amanita contains about 600 species of agarics including some of the most toxic known mushrooms found worldwide, as well as some well-regarded edible species. This genus is responsible for approximately 95% of the fatalities resulting from mushroom poisoning, with the death cap accounting for about 50% on its own. The most potent toxin present in these mushrooms is α-amanitin. The genus also contains many edible mushrooms, but mycologists discourage mushroom hunters, other than knowledgeable experts, from selecting any of these for human consumption. Nonetheless, in some cultures, the larger local edible species of Amanita are mainstays of the markets in the local growing season. Samples of this are Amanita zambiana and other fleshy species in central Africa, A. basii and similar species in Mexico, A. caesarea and the "Blusher" Amanita rubescens in Europe, and A. chepangiana in South-East Asia. Other species are used for colouring sauces, such as the red A. jacksonii with a range from eastern Canada to eastern Mexico. Many species are of unknown edibility, especially in countries such as Australia, where many fungi are little-known.'
-  }, {
-    id: 29,
-    name: 'Escherichia',
-    description: 'Escherichia is a genus of Gram-negative, nonspore forming, facultatively anaerobic, rod-shaped bacteria from the family Enterobacteriaceae. In those species which are inhabitants of the gastrointestinal tracts of warm-blooded animals, Escherichia species provide a portion of the microbially derived vitamin K for their host. A number of the species of Escherichia are pathogenic. The genus is named after Theodor Escherich, the discoverer of Escherichia coli.'
-  }]
-};
-
-exports.default = ranks;
-
-/***/ }),
-
-/***/ "./data/species.js":
-/*!*************************!*\
-  !*** ./data/species.js ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var species = [{
-  id: 1,
-  name: 'Drosophila melanogaster',
-  description: "Drosophila melanogaster is a species of fly (the taxonomic order Diptera) in the family Drosophilidae. The species is known generally as the common fruit fly or vinegar fly. Starting with Charles W. Woodworth's proposal of the use of this species as a model organism, D. melanogaster continues to be widely used for biological research in studies of genetics, physiology, microbial pathogenesis, and life history evolution. It is typically used because it is an animal species that is easy to care for, has four pairs of chromosomes, breeds quickly, and lays many eggs. D. melanogaster is a common pest in homes, restaurants, and other occupied places where food is served.",
-  photo: '/1.jpg',
-  kingdom: 'Animalia',
-  phylum: 'Arthropoda',
-  class: 'Insecta',
-  order: 'Diptera',
-  family: 'Drosophilidae',
-  genus: 'Drosophila'
-}, {
-  id: 2,
-  name: 'Homo sapiens',
-  description: 'Modern humans (Homo sapiens, primarily ssp. Homo sapiens sapiens) are the only extant members of Hominina tribe (or human tribe), a branch of the tribe Hominini belonging to the family of great apes. They are characterized by erect posture and bipedal locomotion; manual dexterity and increased tool use, compared to other animals; and a general trend toward larger, more complex brains and societies.',
-  photo: '/2.jpg',
-  kingdom: 'Animalia',
-  phylum: 'Chordata',
-  class: 'Mammalia',
-  order: 'Primates',
-  family: 'Hominidae',
-  genus: 'Homo'
-}, {
-  id: 3,
-  name: 'Pisum sativum',
-  description: 'The pea is most commonly the small spherical seed or the seed-pod of the pod fruit Pisum sativum. Each pod contains several peas. Pea pods are botanically fruit, since they contain seeds and developed from the ovary of a (pea) flower. The name is also used to describe other edible seeds from the Fabaceae such as the pigeon pea (Cajanus cajan), the cowpea (Vigna unguiculata), and the seeds from several species of Lathyrus.',
-  photo: '/3.jpg',
-  kingdom: 'Plantae',
-  phylum: 'Tracheophyta',
-  class: 'Magnoliopsida',
-  order: 'Fabales',
-  family: 'Fabaceae',
-  genus: 'Pisum'
-}, {
-  id: 4,
-  name: 'Amanita muscaria',
-  description: 'Amanita muscaria, commonly known as the fly agaric or fly amanita, is a mushroom and psychoactive basidiomycete fungus, one of many in the genus Amanita. Native throughout the temperate and boreal regions of the Northern Hemisphere, Amanita muscaria has been unintentionally introduced to many countries in the Southern Hemisphere, generally as a symbiont with pine and birch plantations, and is now a true cosmopolitan species. It associates with various deciduous and coniferous trees.',
-  photo: '/4.jpg',
-  kingdom: 'Fungi',
-  phylum: 'Basidiomycota',
-  class: 'Agaricomycetes',
-  order: 'Agaricales',
-  family: 'Amanitaceae',
-  genus: 'Amanita'
-}, {
-  id: 5,
-  name: 'Escherichia coli',
-  description: 'Escherichia coli is a gram-negative, facultatively anaerobic, rod-shaped, coliform bacterium of the genus Escherichia that is commonly found in the lower intestine of warm-blooded organisms (endotherms). Most E. coli strains are harmless, but some serotypes can cause serious food poisoning in their hosts, and are occasionally responsible for product recalls due to food contamination. The harmless strains are part of the normal flora of the gut, and can benefit their hosts by producing vitamin K2, and preventing colonization of the intestine with pathogenic bacteria. E. coli is expelled into the environment within fecal matter. The bacterium grows massively in fresh fecal matter under aerobic conditions for 3 days, but its numbers decline slowly afterwards.',
-  photo: '/5.jpg',
-  kingdom: 'Eubacteria',
-  phylum: 'Proteobacteria',
-  class: 'Gammaproteobacteria',
-  order: 'Enterobacteriales',
-  family: 'Enterobacteriaceae',
-  genus: 'Escherichia'
-}];
-
-exports.default = species;
 
 /***/ }),
 
