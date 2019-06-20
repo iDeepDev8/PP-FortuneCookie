@@ -1,0 +1,40 @@
+#app {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: red;
+  background-color: gold;
+  align-items: stretch;
+  height: 100%;
+  width: 1300px;
+  border: 5px purple solid;
+}
+
+.fortuneCookie {
+  height: 870px;
+  width: 100%;
+  flex-grow: 1;
+  border: 6px solid orangered;
+}
+
+.Form {
+  width: 100%;
+  height: 870px;
+  flex-grow: 2;  
+  border: 6px solid orangered;
+}
+
+.luck {
+  width: 100%;
+  height: 870px;
+  flex-grow: 1;
+  border: 6px solid orangered;
+}
+
+#app p {
+  text-align: center;
+}
+
+#app .Form {
+  
+}
