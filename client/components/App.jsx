@@ -9,7 +9,7 @@ import Rank from './Rank'
 const App = () => {
   return (
     <React.Fragment>
-      <h1>Navigating the taxonomic ranks</h1>
+      <h1></h1>
       <Nav />
       <Route path="/" exact component={Home} />
       <Route path="/list/:rank" component={List} />
