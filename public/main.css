@@ -43,7 +43,7 @@
   display: flex;
   align-self: center;
   flex-direction: column;
-  margin: 10px;
+  margin: 0;
   border: none;
 }
 
@@ -52,6 +52,8 @@
   display: flex;
   margin-top: 235px;
 }
+
+/* adding active shaking animation on fortune-cookie-img */
 
 .cookieImg:active {
   animation: shake 0.5s infinite;
