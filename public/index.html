@@ -12,7 +12,7 @@
     <div class="fortuneCookie">
       <p>check today's fortune</p>
       <div class="cookieImg">
-        <img src="../public/img/fortuneCookie.jpg" alt="fortuneCookie-img" height="350px" width="420px">
+        <img src="../public/img/fortuneCookie.jpg" alt="fortuneCookie-img" height="350px" width="420px" onclick="audio.play()">
       </div>
     </div>
     <div class="Form">
@@ -34,6 +34,19 @@
     </div>
   </div>
   <script src="bundle.js"></script>
+  <script>
+    const audio = new Audio("https://www.youtube.com/watch?v=tL0FCvnWTew")
+      audio.oncanplaythrough = function() {
+      audio.play()
+    }
+
+      audio.loop = true;
+      audio.onended = function(){
+      audio.play();
+    }
+  </script>
+
+  <input type="image" src="../public/img/fortuneCookie.jpg" onclick="audio.play()">
 </body>
 
 </html>
