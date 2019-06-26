@@ -1,5 +1,5 @@
-const cookieMessage = {
-  messages: [
+exports.seed = function (knex, Promise) {
+  return knex('messages').insert([
     {
       id: 1,
       quote: 'Today it is up to you to create the peacefulness you long for'
@@ -240,6 +240,5 @@ const cookieMessage = {
       id: 60,
       quote: 'Life is a verb'
     }
-  ]
+  ])
 }
-export default cookieMessage
