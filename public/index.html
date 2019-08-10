@@ -7,35 +7,17 @@
   <link rel="stylesheet" href="./main.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
 </head>
-
 <body>
   <div id="app">
     <div class="fortuneCookie">
       <p>check today's fortune</p>
       <div class="cookieImg">
-        <img src="../public/img/fortuneCookie.jpg" alt="fortuneCookie-img" height="350px" width="420px" onclick="audio.play()">
+        <img src="./img/fortuneCookie.jpg" alt="fortuneCookie-img" height="350px" width="420px" onclick="audio.play()">
       </div>
-    </div>
-    <div class="Form">
-      <p>fill out your form</p>
-      <form action="type">
-        Firstname:
-        <br><br>
-        <input type="text" name="firstname">
-        <br><br>
-        Lastname:
-        <br><br>
-        <input type="text" name="lastname">
-      </form>
-      <br>
-      <button>Submit</button>
-    </div>
-    <div class="luck">
-      <p>test your luck</p>
     </div>
   </div>
   <script src="bundle.js"></script>
-  <script>
+  <!-- <script>
     const audio = new Audio("./src/Tough Cookie.mp3")
       audio.oncanplaythrough = function() {
       audio.play()
@@ -45,9 +27,7 @@
       audio.onended = function(){
       audio.play();
     }
-  </script>
-
-  <input type="image" src="./img/fortuneCookie.jpg" onclick="audio.play()">
+  </script> -->
 </body>
 
 </html>
