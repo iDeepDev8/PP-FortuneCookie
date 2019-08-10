@@ -1,18 +1,11 @@
 import React from 'react'
+import { Button, Form, Segment } from "semantic-ui-react"
 
-class Form extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        {/* this is where the form for the user goes in */}
-        <div className="Form">
-          <h2>Tell us who you are</h2>
-          <form action="input"></form>
-          <p>Fill in your details and submit</p>
-        </div>
-      </React.Fragment>
-    )
-  }
+const loginForm = () => {
+  <Segment inverted> 
+    <Form inverted>
+      
+    </Form>
 }
 
 export default Form
