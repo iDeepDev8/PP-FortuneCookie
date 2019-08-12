@@ -1,10 +1,8 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import Nav from './Nav'
-import loginForm from './Form'
-import List from './List'
-import Rank from './Rank'
+import loginForm from '../components/Form'
+import List from '../components/List'
 
 const App = () => {
   return (

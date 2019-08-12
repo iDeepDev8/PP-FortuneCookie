@@ -7,12 +7,7 @@ class Rank extends React.Component {
     return (
 
       <React.Fragment>
-        <div className="Rank">
-          <h2>{this.capitalize(rank)}</h2>
-          <ul>
-            {ranks[rank].map(({ id, name }) => <li key={id}><Link to = {'/rank/' + rank + '/' + name}>{name}</Link></li>)}
-          </ul>
-        </div>
+      
       </React.Fragment>
     )
   }
