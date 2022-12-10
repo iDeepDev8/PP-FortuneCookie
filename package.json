@@ -46,7 +46,7 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "knex": "^0.17.6",
     "react-native-knex": "^0.14.5",
     "sqlite3": "^4.0.9"
